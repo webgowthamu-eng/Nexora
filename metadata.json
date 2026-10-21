@@ -1,0 +1,6 @@
+{
+  "name": "Nexora - Small Business & Job Management",
+  "description": "Complete business workspace for tracking jobs, customer records, payments, and financial insights with Firebase cloud and local storage.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

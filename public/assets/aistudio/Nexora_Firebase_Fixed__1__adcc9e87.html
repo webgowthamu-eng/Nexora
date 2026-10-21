@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#10233f">
+<title>Nexora | Business Manager</title>
+<style>
+:root{--bg:#f3f6fb;--surface:#fff;--surface2:#f7f9fc;--text:#18253a;--muted:#6b7890;--border:#e3e9f2;--navy:#10233f;--accent:#16b8d4;--accent2:#e4f9fc;--green:#14845d;--green-bg:#e4f7ef;--orange:#b86a0b;--orange-bg:#fff2dc;--red:#c23d4b;--red-bg:#ffebee;--shadow:0 10px 30px rgba(18,39,71,.06)}
+[data-theme="dark"]{--bg:#0c1422;--surface:#131f31;--surface2:#1a2940;--text:#eef4ff;--muted:#a5b2c8;--border:#2b3a51;--navy:#0b1729;--accent:#38cce4;--accent2:#153a49;--green:#54d6a3;--green-bg:#153b32;--orange:#ffc46b;--orange-bg:#44331c;--red:#ff8490;--red-bg:#45252d;--shadow:0 10px 30px rgba(0,0,0,.16)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;font-size:14px;line-height:1.45}button,input,select,textarea{font:inherit}button{cursor:pointer}.app{min-height:100vh}.topbar{height:76px;background:var(--surface);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 28px;position:sticky;top:0;z-index:5}.brand{display:flex;align-items:center;gap:12px}.brand-mark{height:42px;width:42px;border-radius:13px;background:linear-gradient(145deg,#10233f,#17506c);display:grid;place-items:center;color:#44d6ed;font-weight:900;font-size:23px;box-shadow:0 6px 16px #10233f22}.brand h1{font-size:17px;margin:0;letter-spacing:-.3px}.brand small{display:block;color:var(--muted);font-size:11px;margin-top:2px}.top-actions{display:flex;align-items:center;gap:10px}.pill{border:1px solid var(--border);border-radius:999px;padding:8px 12px;color:var(--muted);background:var(--surface);font-size:12px}.icon-btn{height:40px;width:40px;border:1px solid var(--border);border-radius:12px;background:var(--surface);color:var(--text);font-size:17px}.layout{display:grid;grid-template-columns:230px minmax(0,1fr);max-width:1500px;margin:auto;min-height:calc(100vh - 76px)}.sidebar{padding:24px 14px;border-right:1px solid var(--border);background:var(--surface)}.nav-label{color:var(--muted);font-size:10px;font-weight:800;letter-spacing:1.4px;padding:6px 12px 12px}.nav-btn{width:100%;display:flex;align-items:center;gap:12px;border:0;background:transparent;color:var(--muted);padding:12px;border-radius:12px;text-align:left;margin:3px 0;font-weight:650}.nav-btn .ico{width:22px;text-align:center;font-size:17px}.nav-btn.active{background:var(--accent2);color:var(--text)}.nav-btn.active .ico{color:var(--accent)}.sidebar-note{margin:32px 6px 0;background:var(--surface2);border:1px solid var(--border);border-radius:15px;padding:14px;font-size:12px;color:var(--muted)}.sidebar-note strong{display:block;color:var(--text);margin-bottom:5px}.main{padding:30px;min-width:0}.page-head{display:flex;justify-content:space-between;align-items:flex-start;gap:15px;margin-bottom:24px}.eyebrow{font-size:11px;font-weight:800;letter-spacing:1.3px;text-transform:uppercase;color:var(--accent)}h2{font-size:27px;line-height:1.2;margin:6px 0 7px;letter-spacing:-.8px}.sub{color:var(--muted);margin:0}.actions{display:flex;gap:9px;flex-wrap:wrap}.btn{border:1px solid var(--border);background:var(--surface);color:var(--text);padding:10px 14px;border-radius:11px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;gap:7px}.btn.primary{background:var(--navy);color:white;border-color:var(--navy)}.btn.cyan{background:var(--accent);color:#06202a;border-color:var(--accent)}.btn.danger{color:var(--red)}.btn.small{padding:7px 10px;font-size:12px;border-radius:9px}.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px;margin-bottom:20px}.stat{padding:18px;background:var(--surface);border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow)}.stat-top{display:flex;align-items:center;justify-content:space-between;color:var(--muted);font-size:12px;font-weight:650}.stat-icon{height:34px;width:34px;border-radius:11px;display:grid;place-items:center;background:var(--accent2);color:var(--accent);font-size:16px}.stat-value{font-size:26px;font-weight:800;letter-spacing:-.7px;margin:13px 0 3px;overflow-wrap:anywhere}.stat-foot{font-size:11px;color:var(--muted)}.grid2{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(270px,1fr);gap:18px}.panel{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:20px;box-shadow:var(--shadow);min-width:0}.panel-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:17px}.panel h3{margin:0;font-size:15px}.muted{color:var(--muted)}.section{display:none}.section.active{display:block}.job-list{display:grid;gap:10px}.job-row{display:flex;align-items:center;gap:12px;padding:13px;border:1px solid var(--border);border-radius:13px}.avatar{height:40px;width:40px;border-radius:12px;background:var(--surface2);display:grid;place-items:center;font-weight:800;color:var(--accent);flex-shrink:0}.job-info{min-width:0;flex:1}.job-info strong{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.job-info small{display:block;color:var(--muted);margin-top:3px}.job-right{text-align:right;white-space:nowrap}.job-right strong{display:block}.badge{display:inline-flex;padding:4px 8px;border-radius:999px;font-size:10px;font-weight:800;background:var(--surface2);color:var(--muted)}.badge.completed{background:var(--green-bg);color:var(--green)}.badge.pending,.badge.in-progress{background:var(--orange-bg);color:var(--orange)}.badge.cancelled{background:var(--red-bg);color:var(--red)}.progress-wrap{margin:15px 0}.progress-label{display:flex;justify-content:space-between;font-size:12px;margin-bottom:7px}.progress{height:8px;background:var(--surface2);border-radius:99px;overflow:hidden}.progress span{height:100%;display:block;background:var(--accent);border-radius:99px}.quick-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.quick{border:1px solid var(--border);background:var(--surface2);border-radius:13px;padding:14px;text-align:left;color:var(--text)}.quick b{display:block;font-size:13px;margin:8px 0 3px}.quick span{font-size:11px;color:var(--muted)}.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:15px}.field{display:flex;flex-direction:column;gap:6px;margin-bottom:14px;min-width:0}.field label{font-size:12px;font-weight:750;color:var(--muted)}.field input,.field select,.field textarea,.search{width:100%;border:1px solid var(--border);border-radius:10px;padding:11px 12px;background:var(--surface);color:var(--text);outline:none}.field input:focus,.field select:focus,.field textarea:focus,.search:focus{border-color:var(--accent);box-shadow:0 0 0 3px #16b8d422}.field textarea{min-height:80px;resize:vertical}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 14px}.span2{grid-column:1/-1}.table-wrap{overflow:auto;border:1px solid var(--border);border-radius:12px}.table{border-collapse:collapse;width:100%;min-width:650px}.table th,.table td{text-align:left;padding:12px 13px;border-bottom:1px solid var(--border);font-size:12px}.table th{background:var(--surface2);color:var(--muted);font-weight:800}.table tr:last-child td{border-bottom:0}.table td strong{font-size:13px}.empty{padding:30px 15px;text-align:center;color:var(--muted);border:1px dashed var(--border);border-radius:13px}.empty b{display:block;color:var(--text);margin-bottom:5px}.setting-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.setting-card{border:1px solid var(--border);border-radius:14px;padding:17px}.setting-card h3{margin:0 0 6px}.setting-card p{margin:0 0 15px;color:var(--muted);font-size:12px}.setting-row{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:13px 0;border-bottom:1px solid var(--border)}.setting-row:last-child{border-bottom:0}.switch{position:relative;width:44px;height:25px;display:inline-block;flex-shrink:0}.switch input{opacity:0;width:0;height:0}.slider{position:absolute;inset:0;background:#8c98a9;border-radius:99px;transition:.2s}.slider:before{content:"";position:absolute;width:19px;height:19px;left:3px;top:3px;background:#fff;border-radius:50%;transition:.2s}.switch input:checked+.slider{background:var(--accent)}.switch input:checked+.slider:before{transform:translateX(19px)}.chart{height:170px;display:flex;align-items:end;gap:9px;padding:12px 3px 0;border-bottom:1px solid var(--border)}.bar-col{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:end;height:100%;gap:7px;min-width:0}.bar{width:min(28px,70%);min-height:3px;background:var(--accent);border-radius:6px 6px 0 0}.bar-col small{font-size:10px;color:var(--muted);padding-bottom:7px}.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:var(--navy);color:#fff;padding:12px 17px;border-radius:12px;box-shadow:var(--shadow);z-index:20;display:none;max-width:90vw}.modal-backdrop{position:fixed;inset:0;background:#07122299;z-index:15;display:none;align-items:center;justify-content:center;padding:16px}.modal-backdrop.show{display:flex}.modal{width:min(680px,100%);max-height:92vh;overflow:auto;background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:22px;box-shadow:0 20px 80px #0004}.modal-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}.modal-head h3{margin:0;font-size:18px}.bottom-nav{display:none}.footnote{font-size:11px;color:var(--muted);margin-top:15px}.notice{padding:12px 14px;background:var(--accent2);border-radius:12px;color:var(--text);font-size:12px;margin-bottom:16px}.hidden{display:none!important}
+@media(max-width:1050px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.grid2{grid-template-columns:1fr}.layout{grid-template-columns:200px minmax(0,1fr)}.main{padding:22px}}
+@media(max-width:720px){.topbar{height:66px;padding:0 15px}.brand-mark{height:37px;width:37px}.brand h1{font-size:15px}.top-actions .pill{display:none}.layout{display:block;min-height:calc(100vh - 66px)}.sidebar{display:none}.main{padding:20px 14px 95px}.page-head{display:block}.page-head .actions{margin-top:15px}.page-head h2{font-size:24px}.stats{gap:10px}.stat{padding:13px}.stat-value{font-size:22px}.stat-icon{height:29px;width:29px}.panel{padding:15px}.setting-grid{grid-template-columns:1fr}.form-grid{grid-template-columns:1fr}.span2{grid-column:auto}.bottom-nav{display:flex;position:fixed;bottom:0;left:0;right:0;z-index:10;background:var(--surface);border-top:1px solid var(--border);padding:7px 4px max(7px,env(safe-area-inset-bottom));justify-content:space-around}.bottom-nav button{background:transparent;border:0;color:var(--muted);display:flex;flex-direction:column;align-items:center;gap:3px;font-size:10px;min-width:0;padding:5px 7px}.bottom-nav button span{font-size:18px}.bottom-nav button.active{color:var(--accent);font-weight:800}.job-row{padding:10px;gap:8px}.job-right{font-size:12px}.quick-grid{gap:8px}.quick{padding:11px}.table{min-width:600px}}
+
+#loginScreen{position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;padding:20px;background:radial-gradient(circle at top right,#d9f8ff 0,transparent 38%),linear-gradient(135deg,#f3f6fb,#e8eef8)}
+.login-card{width:min(430px,100%);background:#fff;border:1px solid #e1e8f2;border-radius:24px;padding:34px;box-shadow:0 25px 80px #10233f20;text-align:center;color:#18253a}
+.login-logo{height:62px;width:62px;margin:0 auto 15px;border-radius:19px;background:linear-gradient(145deg,#10233f,#17506c);display:grid;place-items:center;color:#44d6ed;font-size:34px;font-weight:900}
+.login-card h2{font-size:25px;margin:8px 0}.login-card p{color:#6b7890;font-size:13px;line-height:1.6}.login-btn{width:100%;padding:13px 14px;border:1px solid #dce3ed;background:#fff;border-radius:12px;font-weight:750;color:#18253a;margin-top:10px;display:flex;align-items:center;justify-content:center;gap:10px}.login-btn:hover{background:#f7f9fc}.login-btn.primary-login{background:#10233f;color:white;border-color:#10233f}.login-note{font-size:11px!important;margin-top:18px}.google-g{font-size:19px;font-weight:900;color:#4285f4}.login-error{color:#b42332!important;font-size:12px!important;min-height:18px}.auth-pill{max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+@media(max-width:520px){.login-card{padding:26px 20px}}
+
+</style>
+</head>
+<body>
+<div id="loginScreen">
+  <div class="login-card">
+    <div class="login-logo">L</div>
+    <div style="font-size:11px;font-weight:850;letter-spacing:1.5px;color:#16a9c4">LAKSHNEXA WORKSPACE</div>
+    <h2>Welcome to Nexora</h2>
+    <p>Sign in with Google, or continue as a guest. Your existing jobs saved in this browser will be kept.</p>
+    <button class="login-btn" id="googleLoginBtn"><span class="google-g">G</span> Continue with Google</button>
+    <button class="login-btn primary-login" id="guestLoginBtn">Continue as Guest</button>
+    <p class="login-error" id="loginError" role="status"></p>
+    <p class="login-note">Guest mode keeps data in this browser only. Google sign-in does not automatically sync jobs between devices.</p>
+  </div>
+</div>
+<div class="app" id="appRoot" style="display:none">
+<header class="topbar">
+  <div class="brand"><div class="brand-mark">L</div><div><h1 id="brandTitle">Nexora</h1><small>Small Business Workspace</small></div></div>
+  <div class="top-actions"><span class="pill" id="todayLabel"></span><span class="pill auth-pill" id="authLabel">Guest mode</span><button class="btn" id="authActionBtn" title="Return to login">Sign in</button><button class="icon-btn" id="themeQuick" title="Toggle theme" aria-label="Toggle theme">☾</button><button class="btn primary" id="topAdd">＋ New job</button></div>
+</header>
+<div class="layout">
+<aside class="sidebar">
+  <div class="nav-label">WORKSPACE</div>
+  <button class="nav-btn active" data-page="dashboard"><span class="ico">▦</span>Dashboard</button>
+  <button class="nav-btn" data-page="jobs"><span class="ico">▤</span>All jobs</button>
+  <button class="nav-btn" data-page="customers"><span class="ico">♙</span>Customers</button>
+  <button class="nav-btn" data-page="payments"><span class="ico">₹</span>Payments</button>
+  <button class="nav-btn" data-page="reports"><span class="ico">▥</span>Reports</button>
+  <div class="nav-label" style="margin-top:24px">PREFERENCES</div>
+  <button class="nav-btn" data-page="settings"><span class="ico">⚙</span>App settings</button>
+  <div class="sidebar-note"><strong>✦ Keep your data safe</strong>Download a JSON backup regularly. Your current data is stored in this browser on this device.</div>
+</aside>
+<main class="main">
+<section class="section active" id="page-dashboard">
+  <div class="page-head"><div><div class="eyebrow">OVERVIEW</div><h2 id="welcomeTitle">Your business at a glance</h2><p class="sub">Track jobs, customers and payments in one place.</p></div><div class="actions"><button class="btn" id="dashExport">⇩ Export CSV</button><button class="btn primary" id="dashAdd">＋ Add new job</button></div></div>
+  <div class="stats" id="dashboardStats"></div>
+  <div class="grid2">
+    <div class="panel"><div class="panel-head"><h3>Recent jobs</h3><button class="btn small" data-goto="jobs">View all →</button></div><div id="recentJobs" class="job-list"></div></div>
+    <div class="panel"><div class="panel-head"><h3>Job status</h3><span class="muted" style="font-size:11px">Current workload</span></div><div id="statusSummary"></div><div class="panel-head" style="margin-top:23px"><h3>Quick actions</h3></div><div class="quick-grid"><button class="quick" id="quickJob"><span>＋</span><b>Create a job</b><span>Add a new customer job</span></button><button class="quick" data-goto="payments"><span>₹</span><b>Payments</b><span>Review outstanding balance</span></button><button class="quick" data-goto="customers"><span>♙</span><b>Customers</b><span>Browse customer history</span></button><button class="quick" data-goto="settings"><span>⚙</span><b>Settings</b><span>Personalise your app</span></button></div></div>
+  </div>
+</section>
+<section class="section" id="page-jobs">
+  <div class="page-head"><div><div class="eyebrow">WORK MANAGEMENT</div><h2>All jobs</h2><p class="sub">Create, update and track every customer job.</p></div><div class="actions"><button class="btn" id="jobsExport">⇩ Export CSV</button><button class="btn primary" id="jobsAdd">＋ New job</button></div></div>
+  <div class="panel"><div class="toolbar"><input class="search" id="jobSearch" placeholder="Search customer, phone, service or job ID…" style="flex:1;min-width:190px"><select class="search" id="statusFilter" style="width:auto;min-width:140px"><option value="all">All statuses</option><option>Pending</option><option>In Progress</option><option>Completed</option><option>Cancelled</option></select></div><div id="jobsTable"></div></div>
+</section>
+<section class="section" id="page-customers">
+  <div class="page-head"><div><div class="eyebrow">RELATIONSHIPS</div><h2>Customers</h2><p class="sub">A customer directory built from your saved jobs.</p></div><div class="actions"><button class="btn" id="customersExport">⇩ Export CSV</button><button class="btn primary" id="customersAdd">＋ New job</button></div></div>
+  <div class="panel"><div class="toolbar"><input class="search" id="customerSearch" placeholder="Search customers by name or phone…" style="flex:1"></div><div id="customersTable"></div></div>
+</section>
+<section class="section" id="page-payments">
+  <div class="page-head"><div><div class="eyebrow">FINANCE</div><h2>Payments</h2><p class="sub">See collected payments and remaining balances.</p></div><div class="actions"><button class="btn" id="paymentsExport">⇩ Export CSV</button></div></div>
+  <div class="stats" id="paymentStats"></div><div class="panel"><div class="panel-head"><h3>Payment overview by job</h3></div><div id="paymentsTable"></div></div>
+</section>
+<section class="section" id="page-reports">
+  <div class="page-head"><div><div class="eyebrow">BUSINESS INSIGHTS</div><h2>Reports</h2><p class="sub">Review your recorded jobs and payment performance.</p></div><div class="actions"><button class="btn" id="reportExport">⇩ Export CSV</button><button class="btn" id="reportBackup">⇩ JSON backup</button></div></div>
+  <div class="stats" id="reportStats"></div><div class="grid2"><div class="panel"><div class="panel-head"><h3>Jobs created by month</h3><span class="muted" style="font-size:11px">Last 6 months</span></div><div id="monthlyChart" class="chart"></div></div><div class="panel"><div class="panel-head"><h3>Business summary</h3></div><div id="reportSummary"></div></div></div><p class="footnote">Reports use the job and payment values currently saved in this browser. Profit is not calculated unless you enter business expenses separately.</p>
+</section>
+<section class="section" id="page-settings">
+  <div class="page-head"><div><div class="eyebrow">PREFERENCES</div><h2>App settings</h2><p class="sub">Customise Nexora for your business.</p></div><div class="actions"><button class="btn primary" id="saveSettings">Save settings</button></div></div>
+  <div class="notice">Your jobs remain in browser storage. Settings are saved separately and do not replace or erase your job records.</div>
+  <div class="setting-grid">
+    <div class="panel"><div class="panel-head"><h3>Business profile</h3></div><div class="field"><label for="businessName">Business name</label><input id="businessName" maxlength="80" placeholder="Your business name"></div><div class="field"><label for="businessPhone">Business phone (optional)</label><input id="businessPhone" type="tel" maxlength="25" placeholder="+91…"></div><div class="field"><label for="businessEmail">Business email (optional)</label><input id="businessEmail" type="email" maxlength="100" placeholder="you@example.com"></div><div class="field"><label for="businessAddress">Business address (optional)</label><textarea id="businessAddress" maxlength="250" placeholder="Business address"></textarea></div></div>
+    <div class="panel"><div class="panel-head"><h3>Appearance & preferences</h3></div><div class="setting-row"><div><strong>Dark mode</strong><div class="muted" style="font-size:12px">Switch between light and dark themes</div></div><label class="switch"><input type="checkbox" id="darkSwitch"><span class="slider"></span></label></div><div class="field" style="margin-top:16px"><label for="currencySelect">Currency</label><select id="currencySelect"><option value="INR">Indian Rupee (₹ INR)</option><option value="USD">US Dollar ($ USD)</option><option value="GBP">British Pound (£ GBP)</option><option value="EUR">Euro (€ EUR)</option><option value="AED">UAE Dirham (AED)</option></select></div><div class="field"><label for="dateFormat">Date format</label><select id="dateFormat"><option value="local">Local format</option><option value="dmy">DD/MM/YYYY</option><option value="mdy">MM/DD/YYYY</option><option value="ymd">YYYY-MM-DD</option></select></div><div class="setting-row"><div><strong>Confirm before deleting</strong><div class="muted" style="font-size:12px">Avoid accidental job removal</div></div><label class="switch"><input type="checkbox" id="confirmDelete" checked><span class="slider"></span></label></div></div>
+    <div class="panel"><div class="panel-head"><h3>Backup & restore</h3></div><p class="muted">Export a complete JSON backup before moving devices or making major changes.</p><div class="actions"><button class="btn primary" id="backupBtn">⇩ Download JSON backup</button><button class="btn" id="restoreBtn">⇧ Restore backup</button><input type="file" id="restoreFile" accept=".json,application/json" class="hidden"></div><div class="footnote">Restore replaces the jobs currently stored in this browser. Back up first.</div></div>
+    <div class="panel"><div class="panel-head"><h3>Data & privacy</h3></div><p class="muted">Nexora currently stores data only in this browser. It does not automatically sync to another phone or computer.</p><div class="setting-row"><div><strong>Jobs stored</strong><div class="muted" style="font-size:12px">Saved job records in this browser</div></div><strong id="storedJobCount">0</strong></div><div class="setting-row"><div><strong>Export all jobs</strong><div class="muted" style="font-size:12px">Spreadsheet-compatible CSV</div></div><button class="btn small" id="settingsCsv">Export CSV</button></div><div style="margin-top:16px"><button class="btn danger" id="clearDataBtn">Clear all job data…</button></div></div>
+  </div>
+  <p class="footnote">Version 6.0 • Nexora by Lakshnexa • Keep backups in a safe place. Avoid storing highly sensitive customer information in this prototype.</p>
+</section>
+</main>
+</div>
+<nav class="bottom-nav" id="bottomNav"><button class="active" data-page="dashboard"><span>▦</span>Home</button><button data-page="jobs"><span>▤</span>Jobs</button><button data-page="customers"><span>♙</span>Customers</button><button data-page="payments"><span>₹</span>Payments</button><button data-page="settings"><span>⚙</span>Settings</button></nav>
+</div>
+<div class="modal-backdrop" id="jobModal"><div class="modal"><div class="modal-head"><h3 id="modalTitle">Create new job</h3><button class="icon-btn" id="closeModal" aria-label="Close">×</button></div><form id="jobForm"><input type="hidden" id="jobId"><div class="form-grid"><div class="field"><label for="customer">Customer name *</label><input id="customer" required maxlength="100" placeholder="Enter customer name"></div><div class="field"><label for="phone">Phone number</label><input id="phone" type="tel" maxlength="25" placeholder="Enter phone number"></div><div class="field"><label for="service">Service / job title *</label><input id="service" required maxlength="120" placeholder="e.g. Website repair"></div><div class="field"><label for="jobDate">Job date</label><input id="jobDate" type="date"></div><div class="field"><label for="price">Total price *</label><input id="price" type="number" required min="0" step="0.01" placeholder="0.00"></div><div class="field"><label for="paid">Amount paid</label><input id="paid" type="number" min="0" step="0.01" value="0" placeholder="0.00"></div><div class="field"><label for="status">Job status</label><select id="status"><option>Pending</option><option>In Progress</option><option>Completed</option><option>Cancelled</option></select></div><div class="field"><label for="dueDate">Deadline (optional)</label><input id="dueDate" type="date"></div><div class="field span2"><label for="notes">Notes (optional)</label><textarea id="notes" maxlength="1000" placeholder="Job details, parts, delivery instructions…"></textarea></div></div><div class="actions" style="justify-content:flex-end;margin-top:5px"><button type="button" class="btn" id="cancelModal">Cancel</button><button type="submit" class="btn primary">Save job</button></div></form></div></div>
+<div class="modal-backdrop" id="paymentModal"><div class="modal" style="max-width:430px"><div class="modal-head"><h3>Record payment</h3><button class="icon-btn" id="closePaymentModal">×</button></div><p class="muted" id="paymentJobLabel"></p><div class="field"><label for="paymentAmount">Additional payment amount</label><input id="paymentAmount" type="number" min="0.01" step="0.01" placeholder="Amount received"></div><div class="actions" style="justify-content:flex-end"><button class="btn" id="cancelPayment">Cancel</button><button class="btn primary" id="savePayment">Record payment</button></div></div></div>
+<div class="toast" id="toast"></div>
+<!-- Firebase Google Authentication: add your Firebase web config below to enable Google sign-in. Guest mode works without configuration. -->
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js" onerror="window.__nexoraFirebaseLoadError='Could not load firebase-app-compat.js from gstatic.com'"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js" onerror="window.__nexoraFirebaseLoadError='Could not load firebase-auth-compat.js from gstatic.com'"></script>
+<script>
+(() => {
+  const $auth = id => document.getElementById(id);
+  // Firebase Web app configuration from Firebase Console > Project settings > Your apps > Web app.
+  const firebaseConfig = {
+    apiKey: "AIzaSyArmn_Pcm_ba364gsXsxKykjv74ZLJXS68",
+    authDomain: "nexora-app-2c8b5.firebaseapp.com",
+    projectId: "nexora-app-2c8b5",
+    storageBucket: "nexora-app-2c8b5.firebasestorage.app",
+    messagingSenderId: "205234049044",
+    appId: "1:205234049044:web:d2337b199bc6b0132f1701",
+    measurementId: "G-SDY6H5QK2Z"
+  };
+  let auth = null;
+  let mode = "login";
+  const hasFirebaseConfig = Boolean(firebaseConfig.apiKey && firebaseConfig.projectId && firebaseConfig.appId);
+
+  function showWorkspace(label, actionLabel) {
+    mode = label === "Guest mode" ? "guest" : "google";
+    $auth("loginScreen").style.display = "none";
+    $auth("appRoot").style.display = "block";
+    $auth("authLabel").textContent = label;
+    $auth("authActionBtn").textContent = actionLabel;
+    $auth("authActionBtn").title = mode === "guest" ? "Return to login" : "Sign out";
+    $auth("loginError").textContent = "";
+  }
+  function showLogin(message = "") {
+    mode = "login";
+    $auth("appRoot").style.display = "none";
+    $auth("loginScreen").style.display = "flex";
+    $auth("loginError").textContent = message;
+  }
+  function firebaseReady() {
+    if (!window.firebase || !window.firebase.auth || !window.firebase.initializeApp) {
+      throw new Error(window.__nexoraFirebaseLoadError || "Firebase SDK did not load. Check your internet connection and browser console.");
+    }
+    if (!firebase.apps.length) firebase.initializeApp(firebaseConfig);
+    auth = firebase.auth();
+    return auth;
+  }
+
+  $auth("guestLoginBtn").addEventListener("click", () => showWorkspace("Guest mode", "Sign in"));
+  $auth("googleLoginBtn").addEventListener("click", async () => {
+    if (!hasFirebaseConfig) {
+      showLogin("Firebase web configuration is missing. You can continue as a guest.");
+      return;
+    }
+    try {
+      const currentAuth = firebaseReady();
+      const provider = new firebase.auth.GoogleAuthProvider();
+      provider.setCustomParameters({ prompt: "select_account" });
+      const result = await currentAuth.signInWithPopup(provider);
+      showWorkspace((result.user && result.user.email) ? result.user.email : "Google account", "Sign out");
+    } catch (err) {
+      console.error("Nexora Google sign-in error:", err);
+      const code = err && err.code ? " [" + err.code + "]" : "";
+      let hint = "Check Firebase Authentication settings. Your saved jobs are unchanged. You can continue as a guest.";
+      if (err && err.code === "auth/unauthorized-domain") {
+        hint = "The page hostname is not authorized in the Firebase project used by this web config. Confirm the browser address is http://localhost:5500/ and add localhost under Authentication > Settings > Authorized domains in this exact project. Your saved jobs are unchanged.";
+      } else if (err && err.code === "auth/operation-not-allowed") {
+        hint = "Enable the Google provider under Firebase Authentication > Sign-in method. Your saved jobs are unchanged.";
+      } else if (err && err.code === "auth/popup-blocked") {
+        hint = "Chrome blocked the sign-in popup. Allow popups for localhost and try again. Your saved jobs are unchanged.";
+      } else if (err && err.code === "auth/api-key-not-valid.-please-pass-a-valid-api-key.") {
+        hint = "Copy the exact apiKey from Firebase Console > Project settings > General > Your apps > Nexora Web app. Your saved jobs are unchanged.";
+      } else if (err && err.message) {
+        hint = err.message + ". Your saved jobs are unchanged.";
+      }
+      showLogin("Google sign-in failed" + code + ": " + hint);
+    }
+  });
+  $auth("authActionBtn").addEventListener("click", async () => {
+    if (mode === "google" && auth) {
+      try { await auth.signOut(); } catch (e) { console.warn("Firebase sign-out error", e); }
+    }
+    showLogin();
+  });
+
+  // Restore an existing Firebase session if available; never clear job or settings storage.
+  if (hasFirebaseConfig && window.firebase && window.firebase.auth) {
+    try {
+      const currentAuth = firebaseReady();
+      currentAuth.onAuthStateChanged(user => {
+        if (user) showWorkspace(user.email || "Google account", "Sign out");
+      });
+    } catch (e) {
+      console.error("Nexora Firebase initialization error:", e);
+    }
+  }
+})();
+</script>
+<script>
+(() => {
+"use strict";
+const JOBS_KEY = "lakshnexa-jobflow-v1";
+const SETTINGS_KEY = "lakshnexa-jobflow-settings-v1";
+const $ = id => document.getElementById(id);
+let jobs = [];
+let settings = {businessName:"Nexora",businessPhone:"",businessEmail:"",businessAddress:"",theme:"light",currency:"INR",dateFormat:"local",confirmDelete:true};
+let paymentTarget = null;
+const statuses = ["Pending","In Progress","Completed","Cancelled"];
+const money = n => {try{return new Intl.NumberFormat("en-IN",{style:"currency",currency:settings.currency||"INR",maximumFractionDigits:2}).format(Number(n)||0)}catch{return "₹"+(Number(n)||0).toFixed(2)}};
+const todayISO = () => {const d=new Date();return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`};
+function dateFmt(v){if(!v)return "—";const d=new Date(v+"T00:00:00");if(Number.isNaN(d.getTime()))return String(v);if(settings.dateFormat==="dmy")return `${String(d.getDate()).padStart(2,"0")}/${String(d.getMonth()+1).padStart(2,"0")}/${d.getFullYear()}`;if(settings.dateFormat==="mdy")return `${String(d.getMonth()+1).padStart(2,"0")}/${String(d.getDate()).padStart(2,"0")}/${d.getFullYear()}`;if(settings.dateFormat==="ymd")return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;return d.toLocaleDateString("en-IN",{day:"2-digit",month:"short",year:"numeric"})}
+function esc(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function num(v){const n=Number(v);return Number.isFinite(n)&&n>0?n:0}
+function normalizeStatus(v){let s=String(v??"Pending").trim().toLowerCase().replace(/[_-]/g," ");if(["done","complete","completed","finished"].includes(s))return "Completed";if(["in progress","ongoing","started","working"].includes(s))return "In Progress";if(["cancelled","canceled"].includes(s))return "Cancelled";return "Pending"}
+function normalizeJob(j,i){j=j&&typeof j==="object"?j:{};const price=num(j.price??j.totalPrice??j.amount??j.cost??j.total??0);let paid=num(j.paid??j.amountPaid??j.paymentReceived??j.advance??0);paid=Math.min(paid,price||paid);return {id:String(j.id??j.jobId??`JOB-${Date.now().toString(36)}-${i}`),customer:String(j.customer??j.customerName??j.name??""),phone:String(j.phone??j.mobile??j.contact??""),service:String(j.service??j.jobTitle??j.title??j.work??""),price,paid,status:normalizeStatus(j.status??j.jobStatus),date:String(j.date??j.jobDate??j.createdAt??todayISO()).slice(0,10),dueDate:String(j.dueDate??j.deadline??"").slice(0,10),notes:String(j.notes??j.description??""),createdAt:j.createdAt??new Date().toISOString(),paymentHistory:Array.isArray(j.paymentHistory)?j.paymentHistory:[]}}
+function loadJobs(){try{const raw=localStorage.getItem(JOBS_KEY);if(!raw){jobs=[];return}const parsed=JSON.parse(raw);const arr=Array.isArray(parsed)?parsed:(parsed&&Array.isArray(parsed.jobs)?parsed.jobs:[]);jobs=arr.map(normalizeJob)}catch(e){jobs=[];toast("Could not read saved jobs. Use your JSON backup if needed.")}}
+function saveJobs(){try{localStorage.setItem(JOBS_KEY,JSON.stringify(jobs));$("storedJobCount").textContent=jobs.length}catch(e){toast("Could not save. Browser storage may be full.");}}
+function loadSettings(){try{const s=JSON.parse(localStorage.getItem(SETTINGS_KEY)||"{}");if(s&&typeof s==="object")settings={...settings,...s}}catch{}}
+function saveSettingsData(){localStorage.setItem(SETTINGS_KEY,JSON.stringify(settings))}
+function applyTheme(){document.documentElement.dataset.theme=settings.theme==="dark"?"dark":"light";$("themeQuick").textContent=settings.theme==="dark"?"☀":"☾";$("darkSwitch").checked=settings.theme==="dark";document.querySelector('meta[name="theme-color"]').content=settings.theme==="dark"?"#0c1422":"#10233f"}
+function toast(msg){const t=$("toast");t.textContent=msg;t.style.display="block";clearTimeout(toast.timer);toast.timer=setTimeout(()=>t.style.display="none",2800)}
+function go(page){document.querySelectorAll(".section").forEach(s=>s.classList.toggle("active",s.id==="page-"+page));document.querySelectorAll("[data-page]").forEach(b=>b.classList.toggle("active",b.dataset.page===page));renderPage(page);window.scrollTo({top:0,behavior:"smooth"})}
+function counts(){const active=jobs.filter(j=>j.status!=="Cancelled");return {total:jobs.length,pending:jobs.filter(j=>j.status==="Pending"||j.status==="In Progress").length,completed:jobs.filter(j=>j.status==="Completed").length,revenue:jobs.reduce((a,j)=>a+j.paid,0),value:active.reduce((a,j)=>a+j.price,0),due:active.reduce((a,j)=>a+Math.max(0,j.price-j.paid),0),unpaid:active.filter(j=>j.price-j.paid>0).length}}
+function statCard(label,value,icon,foot){return `<div class="stat"><div class="stat-top"><span>${label}</span><span class="stat-icon">${icon}</span></div><div class="stat-value">${value}</div><div class="stat-foot">${foot}</div></div>`}
+function badge(status){return `<span class="badge ${status.toLowerCase().replace(/\s/g,"-")}">${esc(status)}</span>`}
+function jobRow(j){return `<div class="job-row"><div class="avatar">${esc((j.customer||"?").trim().charAt(0).toUpperCase())}</div><div class="job-info"><strong>${esc(j.customer||"Unnamed customer")}</strong><small>${esc(j.service||"No service title")} · ${esc(j.id)}</small></div><div class="job-right"><strong>${money(j.price)}</strong><div style="margin-top:5px">${badge(j.status)}</div></div></div>`}
+function renderDashboard(){const c=counts();$("welcomeTitle").textContent=settings.businessName&&settings.businessName!=="Nexora"?`Welcome to ${settings.businessName}`:"Your business at a glance";$("dashboardStats").innerHTML=statCard("Total jobs",c.total,"▤","All recorded jobs")+statCard("Pending work",c.pending,"◷","Pending and in progress")+statCard("Payments received",money(c.revenue),"₹","Recorded customer payments")+statCard("Outstanding balance",money(c.due),"◉",`${c.unpaid} job(s) with a balance`);const recent=[...jobs].sort((a,b)=>(b.createdAt||b.date).localeCompare(a.createdAt||a.date)).slice(0,5);$("recentJobs").innerHTML=recent.length?recent.map(jobRow).join(""):`<div class="empty"><b>No jobs yet</b>Add your first job to start tracking your business.</div>`;const all=Math.max(jobs.length,1);$("statusSummary").innerHTML=statuses.map(s=>{const n=jobs.filter(j=>j.status===s).length;return `<div class="progress-wrap"><div class="progress-label"><span>${s}</span><strong>${n} · ${Math.round(n/all*100)}%</strong></div><div class="progress"><span style="width:${n/all*100}%"></span></div></div>`}).join("")}
+function renderJobs(){const q=$("jobSearch").value.trim().toLowerCase(),filter=$("statusFilter").value;const arr=[...jobs].filter(j=>(filter==="all"||j.status===filter)&&[j.customer,j.phone,j.service,j.id,j.notes].some(v=>String(v).toLowerCase().includes(q))).sort((a,b)=>(b.date||"").localeCompare(a.date||""));if(!arr.length){$("jobsTable").innerHTML=`<div class="empty"><b>No matching jobs</b>Try another search or create a new job.</div>`;return}$("jobsTable").innerHTML=`<div class="table-wrap"><table class="table"><thead><tr><th>Job / customer</th><th>Date</th><th>Total</th><th>Paid</th><th>Balance</th><th>Status</th><th>Actions</th></tr></thead><tbody>${arr.map(j=>`<tr><td><strong>${esc(j.service||"Job")}</strong><br><span class="muted">${esc(j.customer)} · ${esc(j.id)}</span>${j.phone?`<br><span class="muted">${esc(j.phone)}</span>`:""}</td><td>${dateFmt(j.date)}</td><td>${money(j.price)}</td><td>${money(j.paid)}</td><td><strong>${money(Math.max(0,j.price-j.paid))}</strong></td><td><select aria-label="Change status" class="search status-change" data-id="${esc(j.id)}" style="padding:6px;min-width:115px">${statuses.map(s=>`<option ${s===j.status?"selected":""}>${s}</option>`).join("")}</select></td><td><div class="actions" style="flex-wrap:nowrap"><button class="btn small" data-edit="${esc(j.id)}">Edit</button><button class="btn small" data-pay="${esc(j.id)}">+ Pay</button><button class="btn small danger" data-delete="${esc(j.id)}">×</button></div></td></tr>`).join("")}</tbody></table></div>`}
+function getCustomers(){const map=new Map();jobs.forEach(j=>{const key=(j.phone||j.customer).trim().toLowerCase();if(!key)return;let c=map.get(key);if(!c){c={name:j.customer,phone:j.phone,jobs:[],value:0,paid:0};map.set(key,c)}c.jobs.push(j);c.value+=j.price;c.paid+=j.paid;if(!c.phone&&j.phone)c.phone=j.phone});return [...map.values()].sort((a,b)=>a.name.localeCompare(b.name))}
+function renderCustomers(){const q=$("customerSearch").value.trim().toLowerCase();const cs=getCustomers().filter(c=>(c.name+" "+c.phone).toLowerCase().includes(q));$("customersTable").innerHTML=cs.length?`<div class="table-wrap"><table class="table"><thead><tr><th>Customer</th><th>Phone</th><th>Jobs</th><th>Total job value</th><th>Paid</th><th>Balance</th><th>Action</th></tr></thead><tbody>${cs.map(c=>`<tr><td><strong>${esc(c.name)}</strong></td><td>${c.phone?`<a href="tel:${esc(c.phone)}" style="color:var(--accent)">${esc(c.phone)}</a>`:"—"}</td><td>${c.jobs.length}</td><td>${money(c.value)}</td><td>${money(c.paid)}</td><td>${money(c.jobs.reduce((a,j)=>a+Math.max(0,j.price-j.paid),0))}</td><td><button class="btn small" data-customer="${esc(c.name)}" data-phone="${esc(c.phone)}">View jobs</button></td></tr>`).join("")}</tbody></table></div>`:`<div class="empty"><b>No customers found</b>Customers appear here after you save jobs.</div>`}
+function renderPayments(){const c=counts();$("paymentStats").innerHTML=statCard("Payments received",money(c.revenue),"₹","Total amount recorded")+statCard("Outstanding",money(c.due),"◉","Remaining balances")+statCard("Jobs with balance",c.unpaid,"▤","Not fully paid")+statCard("Job value",money(c.value),"▥","Excluding cancelled jobs");const arr=jobs.filter(j=>j.status!=="Cancelled").sort((a,b)=>(b.price-b.paid)-(a.price-a.paid));$("paymentsTable").innerHTML=arr.length?`<div class="table-wrap"><table class="table"><thead><tr><th>Customer / job</th><th>Total price</th><th>Paid</th><th>Balance due</th><th>Action</th></tr></thead><tbody>${arr.map(j=>`<tr><td><strong>${esc(j.customer)}</strong><br><span class="muted">${esc(j.service)} · ${esc(j.id)}</span></td><td>${money(j.price)}</td><td>${money(j.paid)}</td><td><strong>${money(Math.max(0,j.price-j.paid))}</strong></td><td><button class="btn small" data-pay="${esc(j.id)}" ${j.price<=j.paid?"disabled":""}>Record payment</button></td></tr>`).join("")}</tbody></table></div>`:`<div class="empty"><b>No payment records yet</b>Add jobs to see payment balances.</div>`}
+function renderReports(){const c=counts();$("reportStats").innerHTML=statCard("Recorded revenue",money(c.revenue),"₹","Payments received")+statCard("Outstanding",money(c.due),"◉","Balance yet to collect")+statCard("Completed jobs",c.completed,"✓","Jobs marked completed")+statCard("Average job value",money(jobs.length?c.value/jobs.length:0),"▤","Based on non-cancelled job value");const now=new Date();const months=[];for(let i=5;i>=0;i--){const d=new Date(now.getFullYear(),now.getMonth()-i,1);const label=d.toLocaleDateString("en-IN",{month:"short"});const key=`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}`;months.push({label,key,n:jobs.filter(j=>(j.date||"").slice(0,7)===key).length})}const max=Math.max(...months.map(m=>m.n),1);$("monthlyChart").innerHTML=months.map(m=>`<div class="bar-col" title="${m.n} job(s)"><div class="bar" style="height:${Math.max(3,m.n/max*100)}%"></div><small>${m.label}</small></div>`).join("");$("reportSummary").innerHTML=`<div class="setting-row"><span class="muted">Total jobs recorded</span><strong>${c.total}</strong></div><div class="setting-row"><span class="muted">Active job value</span><strong>${money(c.value)}</strong></div><div class="setting-row"><span class="muted">Payments received</span><strong>${money(c.revenue)}</strong></div><div class="setting-row"><span class="muted">Outstanding balance</span><strong>${money(c.due)}</strong></div><div class="setting-row"><span class="muted">Completion rate</span><strong>${c.total?Math.round(c.completed/c.total*100):0}%</strong></div>`}
+function renderPage(page){if(page==="dashboard")renderDashboard();if(page==="jobs")renderJobs();if(page==="customers")renderCustomers();if(page==="payments")renderPayments();if(page==="reports")renderReports();if(page==="settings"){$("storedJobCount").textContent=jobs.length}}
+function refresh(){renderDashboard();renderJobs();renderCustomers();renderPayments();renderReports();$("storedJobCount").textContent=jobs.length}
+function openJobModal(id){$("jobForm").reset();$("jobId").value="";$("jobDate").value=todayISO();$("paid").value="0";$("status").value="Pending";$("modalTitle").textContent=id?"Edit job":"Create new job";if(id){const j=jobs.find(x=>x.id===id);if(!j)return;$("jobId").value=j.id;$("customer").value=j.customer;$("phone").value=j.phone;$("service").value=j.service;$("jobDate").value=j.date||todayISO();$("price").value=j.price;$("paid").value=j.paid;$("status").value=j.status;$("dueDate").value=j.dueDate;$("notes").value=j.notes} $("jobModal").classList.add("show");setTimeout(()=>$("customer").focus(),80)}
+function closeJobModal(){$("jobModal").classList.remove("show")}
+function saveJob(e){e.preventDefault();const id=$("jobId").value;const price=num($("price").value),paidInput=num($("paid").value);if(paidInput>price){if(!confirm("Amount paid is higher than the job total. Save anyway?"))return}const old=id?jobs.find(j=>j.id===id):null;const job={id:id||`JOB-${Date.now().toString(36).toUpperCase()}`,customer:$("customer").value.trim(),phone:$("phone").value.trim(),service:$("service").value.trim(),price,paid:paidInput,status:$("status").value,date:$("jobDate").value||todayISO(),dueDate:$("dueDate").value,notes:$("notes").value.trim(),createdAt:old?.createdAt||new Date().toISOString(),paymentHistory:old?.paymentHistory||[]};if(!job.customer||!job.service){toast("Please fill in the required fields.");return}if(id){jobs=jobs.map(j=>j.id===id?job:j)}else jobs.unshift(job);saveJobs();closeJobModal();refresh();toast(id?"Job updated":"New job saved")}
+function openPayment(id){const j=jobs.find(x=>x.id===id);if(!j)return;paymentTarget=id;$("paymentJobLabel").textContent=`${j.customer} · ${j.service} · Balance ${money(Math.max(0,j.price-j.paid))}`;$("paymentAmount").value="";$("paymentModal").classList.add("show");setTimeout(()=>$("paymentAmount").focus(),80)}
+function savePayment(){const j=jobs.find(x=>x.id===paymentTarget),amount=num($("paymentAmount").value);if(!j||amount<=0){toast("Enter a payment amount greater than zero.");return}j.paid+=amount;j.paymentHistory.push({amount,date:new Date().toISOString()});saveJobs();$("paymentModal").classList.remove("show");refresh();toast("Payment recorded")}
+function deleteJob(id){const j=jobs.find(x=>x.id===id);if(!j)return;if(settings.confirmDelete&&!confirm(`Delete job "${j.service}" for ${j.customer}? This cannot be undone unless you have a backup.`))return;jobs=jobs.filter(x=>x.id!==id);saveJobs();refresh();toast("Job deleted")}
+function csvEscape(v){return `"${String(v??"").replace(/"/g,'""')}"`}
+function downloadFile(name,content,type){const blob=new Blob([content],{type});const url=URL.createObjectURL(blob);const a=document.createElement("a");a.href=url;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000)}
+function exportCSV(list=jobs,filename="nexora-jobs.csv"){const headers=["Job ID","Customer","Phone","Service","Job Date","Deadline","Total Price","Paid","Balance","Status","Notes"];const rows=list.map(j=>[j.id,j.customer,j.phone,j.service,j.date,j.dueDate,j.price,j.paid,Math.max(0,j.price-j.paid),j.status,j.notes]);downloadFile(filename,[headers,...rows].map(r=>r.map(csvEscape).join(",")).join("\r\n"),"text/csv;charset=utf-8;");toast("CSV exported")}
+function backup(){const payload={app:"Nexora",version:5,exportedAt:new Date().toISOString(),jobs,settings};downloadFile(`nexora-backup-${todayISO()}.json`,JSON.stringify(payload,null,2),"application/json");toast("JSON backup downloaded")}
+function restoreFile(file){if(!file)return;const reader=new FileReader();reader.onload=()=>{try{const parsed=JSON.parse(reader.result);const arr=Array.isArray(parsed)?parsed:parsed.jobs;if(!Array.isArray(arr))throw new Error("Invalid backup format");if(!confirm(`Restore ${arr.length} job(s)? This will replace jobs currently saved in this browser. Download a backup first if needed.`))return;jobs=arr.map(normalizeJob);if(parsed.settings&&typeof parsed.settings==="object"){settings={...settings,...parsed.settings};saveSettingsData();populateSettings()}saveJobs();refresh();applyTheme();toast("Backup restored")}catch(e){alert("This file could not be restored. Please select a valid JobFlow JSON backup.")}};reader.readAsText(file)}
+function populateSettings(){$("businessName").value=settings.businessName||"";$("businessPhone").value=settings.businessPhone||"";$("businessEmail").value=settings.businessEmail||"";$("businessAddress").value=settings.businessAddress||"";$("currencySelect").value=settings.currency||"INR";$("dateFormat").value=settings.dateFormat||"local";$("confirmDelete").checked=settings.confirmDelete!==false;applyTheme()}
+function saveSettings(){settings.businessName=$("businessName").value.trim()||"Nexora";settings.businessPhone=$("businessPhone").value.trim();settings.businessEmail=$("businessEmail").value.trim();settings.businessAddress=$("businessAddress").value.trim();settings.currency=$("currencySelect").value;settings.dateFormat=$("dateFormat").value;settings.confirmDelete=$("confirmDelete").checked;settings.theme=$("darkSwitch").checked?"dark":"light";saveSettingsData();applyTheme();$("brandTitle").textContent=settings.businessName;refresh();toast("Settings saved")}
+function toggleTheme(){settings.theme=settings.theme==="dark"?"light":"dark";saveSettingsData();applyTheme();$("brandTitle").textContent=settings.businessName||"Nexora";toast(`${settings.theme==="dark"?"Dark":"Light"} theme enabled`)}
+function clearAll(){if(!confirm("Permanently clear all jobs from this browser? Download a JSON backup first. This cannot be undone."))return;if(!confirm("Final confirmation: delete every saved job?"))return;jobs=[];saveJobs();refresh();toast("All job records cleared")}
+document.querySelectorAll("[data-page]").forEach(b=>b.addEventListener("click",()=>go(b.dataset.page)));
+document.querySelectorAll("[data-goto]").forEach(b=>b.addEventListener("click",()=>go(b.dataset.goto)));
+$("topAdd").onclick=$("dashAdd").onclick=$("jobsAdd").onclick=$("customersAdd").onclick=$("quickJob").onclick=()=>openJobModal();
+$("closeModal").onclick=$("cancelModal").onclick=closeJobModal;
+$("jobModal").addEventListener("click",e=>{if(e.target===$("jobModal"))closeJobModal()});
+$("jobForm").addEventListener("submit",saveJob);
+$("closePaymentModal").onclick=$("cancelPayment").onclick=()=>$("paymentModal").classList.remove("show");
+$("paymentModal").addEventListener("click",e=>{if(e.target===$("paymentModal"))$("paymentModal").classList.remove("show")});
+$("savePayment").onclick=savePayment;
+$("jobSearch").addEventListener("input",renderJobs);$("statusFilter").addEventListener("change",renderJobs);$("customerSearch").addEventListener("input",renderCustomers);
+document.addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;if(b.dataset.edit)openJobModal(b.dataset.edit);if(b.dataset.pay)openPayment(b.dataset.pay);if(b.dataset.delete)deleteJob(b.dataset.delete);if(b.dataset.customer){const name=b.dataset.customer,phone=b.dataset.phone;go("jobs");$("jobSearch").value=phone||name;$("statusFilter").value="all";renderJobs()}});
+document.addEventListener("change",e=>{if(e.target.matches(".status-change")){const j=jobs.find(x=>x.id===e.target.dataset.id);if(j){j.status=e.target.value;saveJobs();refresh();toast("Job status updated")}}});
+["dashExport","jobsExport","customersExport","paymentsExport","reportExport","settingsCsv"].forEach(id=>$(id).onclick=()=>exportCSV());
+$("reportBackup").onclick=$("backupBtn").onclick=backup;
+$("restoreBtn").onclick=()=>$("restoreFile").click();
+$("restoreFile").addEventListener("change",e=>{restoreFile(e.target.files[0]);e.target.value=""});
+$("saveSettings").onclick=saveSettings;
+$("darkSwitch").onchange=()=>{settings.theme=$("darkSwitch").checked?"dark":"light";applyTheme();saveSettingsData()};
+$("themeQuick").onclick=toggleTheme;
+$("clearDataBtn").onclick=clearAll;
+$("todayLabel").textContent=new Date().toLocaleDateString("en-IN",{weekday:"short",day:"numeric",month:"short",year:"numeric"});
+loadSettings();loadJobs();populateSettings();$("brandTitle").textContent=settings.businessName||"Nexora";refresh();
+})();
+</script>
+</body>
+</html>
